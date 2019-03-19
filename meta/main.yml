@@ -12,4 +12,4 @@ galaxy_info:
   galaxy_tags:
     - web
 dependencies:
-  - bertvv.httpd
+  - clusterapps.httpd
