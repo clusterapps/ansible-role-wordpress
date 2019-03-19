@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: Michael Cleary
+  description: Installs Wordpress on a RedHat based distribution (RHEL/CentOS) from latest.tar.gz
+  license: BSD
+  min_ansible_version: 2.4
+  platforms:
+    - name: EL
+      versions:
+        - 7
+  galaxy_tags:
+    - web
+dependencies:
+  - bertvv.httpd

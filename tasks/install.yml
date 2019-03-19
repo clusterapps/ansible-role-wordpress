@@ -1,0 +1,44 @@
+# roles/wordpress/tasks/install.yml
+---
+
+- name: Ensure repository is installed
+  package:
+    name: "{{ item }}"
+    state: installed
+  with_items: "{{ wordpress_repository }}"
+  tags: wordpress
+
+- name: Ensure PHP7 and it's modules are installed
+  package:
+    name: "{{ item }}"
+    state: installed
+  with_items: "{{ wordpress_packages }}"
+  tags: wordpress
+
+- name: Check whether Apache is already installed
+  stat:
+    path: "{{ wordpress_httpd_service }}"
+  register: wordpress_httpd_status
+  failed_when: not wordpress_httpd_status.stat.exists
+  tags: wordpress
+
+- name: Downloading Wordpress
+  get_url:
+    url: https://wordpress.org/latest.tar.gz
+    dest: /tmp/latest.tar.gz
+
+- name: Unpacking Wordpress from latest tarball
+  unarchive:
+    src: /tmp/latest.tar.gz
+    dest: /var/www/
+    remote_src: yes
+  register: new_wp   
+
+- name: Moving Wordpress files into www root
+  synchronize:
+    src: /var/www/wordpress/
+    dest: /var/www/html
+  delegate_to: "{{ inventory_hostname }}"
+  when: new_wp.changed
+
+  
