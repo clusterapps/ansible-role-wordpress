@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: wordpress
   author: Michael Cleary
   description: Installs Wordpress on a RedHat based distribution (RHEL/CentOS) from latest.tar.gz
   license: BSD
