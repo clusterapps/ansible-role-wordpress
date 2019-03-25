@@ -10,7 +10,7 @@ An Ansible role for installing Wordpress. Specifically, the responsibilities of 
 
 ## Dependencies
 
-- [bertvv.httpd](https://galaxy.ansible.com/list#/roles/3047)
+- [clusterapps.httpd](https://galaxy.ansible.com/clusterapps/httpd)
 
 ## Requirements
 

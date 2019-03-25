@@ -11,5 +11,5 @@ galaxy_info:
         - 7
   galaxy_tags:
     - web
-dependencies:
-  - clusterapps.httpd
+  dependencies:
+    - clusterapps.httpd
