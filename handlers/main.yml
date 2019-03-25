@@ -1,9 +1,9 @@
 # roles/wordpress/handlers/main.yml
 ---
 
-- name: restart wordpress
+- name: restart httpd
   service:
-    name: wordpress
+    name: httpd
     state: restarted
 
 - name: restart firewalld
